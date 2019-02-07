@@ -5,6 +5,6 @@
 using namespace std;
 
 int main(){
-    system(payload0_command.c_str());
+    system(command.c_str());
     return 0;
 }

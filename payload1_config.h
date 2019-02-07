@@ -1,1 +1,1 @@
-std::string command = "la -la";
+std::string command = "ls -la";
