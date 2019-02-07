@@ -3,7 +3,8 @@
 
 using namespace std;
 
-const string TOOLCHAIN = "./toolchain/bin/arm-linux-androideabi-clang++ -fPIE";
+const string TOOLCHAIN = "./toolchain/bin/arm-linux-androideabi-clang++"
+                         " -march=armv7-a and -mthumb";
 const string TARGET_BASH = "/system/bin/sh";
 const string OPTIONS = "Options: \n"
                         "    1) Execute single command\n"
