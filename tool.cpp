@@ -4,7 +4,8 @@
 using namespace std;
 
 const string TOOLCHAIN = "./toolchain/bin/arm-linux-androideabi-clang++"
-                         " -march=armv7-a -mthumb -static-libstdc++ -fPIE -fPIC";
+                         " -march=armv7-a -mthumb -static-libstdc++"
+                         " -fPIE -fPIC -pie";
 const string TARGET_BASH = "/system/bin/sh";
 const string OPTIONS = "Options: \n"
                         "    1) Execute single command\n"
